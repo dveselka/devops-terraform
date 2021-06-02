@@ -94,10 +94,10 @@ resource "azurerm_network_interface_security_group_association" "dave" {
 
 
 resource "azurerm_linux_virtual_machine" "daveterraformvm" {
-  name                            = "dave_terraform_test"
+  name                            = "dave-terraform-test"
   resource_group_name             = azurerm_resource_group.daveterraformgroup.name
   location                        = "westeurope"
-  size                            = "Standard_DS3_v2"
+  size                            = "Standard_A2_v2"
   admin_username                  = "centos"
   network_interface_ids = [
     azurerm_network_interface.daveterraformnic.id,
@@ -109,14 +109,14 @@ resource "azurerm_linux_virtual_machine" "daveterraformvm" {
   }
 
   source_image_reference {
-    publisher = "Canonical"
-    offer     = "Centos"
-    sku       = "8_2"
+    publisher = "OpenLogic"
+    offer     = "CentOS"
+    sku       = "8_3"
     version   = "latest"
   }
 
   os_disk {
-    storage_account_type = "Premium_LRS"
+    storage_account_type = "Standard_LRS"
     caching              = "ReadWrite"
   }
 }
