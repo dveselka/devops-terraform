@@ -1,1 +1,3 @@
-provider "google" {}
+provider "google" {
+    project = "dave-terraform"
+}
