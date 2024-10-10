@@ -18,6 +18,8 @@ resource "google_compute_firewall" "mynetwork-allow-http-ssh-rdp-icmp" {
   }
   source_ranges = ["0.0.0.0/0"]
 }
+
+
 # Create the mynet-us-vm instance
 module "mynet-us-vm" {
   source           = "./instance"
